@@ -3,19 +3,8 @@
     padding: 0;
 }
 
-div.nav {
-    background-color: #a3bdc0;
-    border-bottom: 1px solid #909ea0;
-    padding: 10px 5px;
+body {
+    margin-top: 50px!important;
 }
 
-div.nav a {
-    text-decoration: none;
-    color: #000000;
-    padding: 5px 10px;
-}
 
-div.nav a.logo {
-    display: inline-block;
-    font-size: 30px;
-}

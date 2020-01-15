@@ -21,12 +21,20 @@
                     <div class="panel-heading">博客列表（共有{{ blogs|length }}篇博客）</div>
                     <div class="panel-body">
                         {% for blog in blogs %} {# from blog_list #}
-                            <a href="{% url 'blog_detail' blog.pk %}"> {# from blog_detail #}
-                                <h3>{{ blog.title }}</h3>
-                            </a>
-                            <p>{{ blog.content|truncatechars:30 }}</p> {# filter-->max chars to show #}
+                            <div class="blog">
+                                <h3>
+                                    <a href="{% url 'blog_detail' blog.pk %}">{{ blog.title }}</a>
+                                </h3>
+                                <p class="blog-info">
+                                    分类：{{ blog.blog_type }}
+                                    发表日期：{{ blog.created_time|date:"Y-m-d" }}
+                                </p>
+                                <p>{{ blog.content|truncatechars:50 }}</p> {# filter-->max chars to show #}
+                            </div>
                         {% empty %}
-                            <p>暂无博客</p>
+                            <div class="blog">
+                                <h3>暂无博客</h3>
+                            </div>
                         {% endfor %}
                     </div>
                 </div>

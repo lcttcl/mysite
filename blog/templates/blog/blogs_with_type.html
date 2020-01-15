@@ -1,18 +1,11 @@
-{% extends 'base.html' %}
+{% extends 'blog/blog_list.html' %}
 
 {% block title %}
     {{ blog_type.type_name }}
 {% endblock %}
 
-{% block content %}
-    <h3>{{ blog_type.type_name }}</h3>
-    {% for blog in blogs %} {# from blog_list #}
-        <a href="{% url 'blog_detail' blog.pk %}"> {# from blog_detail #}
-            <h3>{{ blog.title }}</h3>
-        </a>
-        <p>{{ blog.content|truncatechars:30 }}</p> {# filter-->max chars to show #}
-    {% empty %}
-        <p>暂无博客</p>
-    {% endfor %}
-    <p>共有{{ blogs|length }}篇</p>
+{% block blog_list_title %}
+    分类：{{ blog_type.type_name }}（共有{{ blogs|length }}篇）
+    <a href="{% url 'blog_list' %}">查看全部博客</a>
 {% endblock %}
+
